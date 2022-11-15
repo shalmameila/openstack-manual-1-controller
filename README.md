@@ -1,0 +1,1 @@
+# openstack-manual-1-controller
