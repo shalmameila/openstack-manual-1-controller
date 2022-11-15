@@ -60,10 +60,35 @@ root@jennie-controller:~# ceph -s
     usage:   0 B used, 0 B / 0 B avail
     pgs:
 ```
-buat yang `insecure global_id reclaim` solve pakai [referensi ini](https://access.redhat.com/articles/6136242)
-- ini untuk bikin OSD pakai bluestore [disini ya](https://docs.ceph.com/en/latest/install/manual-deployment/#bluestore). tapi kalau masih error we just need to create OSDs
+buat yang `insecure global_id reclaim` solve pakai [referensi ini](https://access.redhat.com/articles/6136242). tapi kalau masih `HEALTH_WARN` we just need to create OSDs
+- SEBELUM BIKIN OSD
+```bash
+# di controller :
+for i in `cat /etc/hosts | grep jennie-com |awk '{print $2}'`; do scp /var/lib/ceph/bootstrap-osd/ceph.keyring $i:/var/lib/ceph/bootstrap-osd/ceph.keyring; done
+for i in `cat /etc/hosts | grep jennie-com |awk '{print $2}'`; do scp /etc/ceph/ceph.conf  $i:/etc/ceph/ceph.conf; done
+for i in `cat /etc/hosts | grep jennie-com |awk '{print $2}'`; do scp /etc/ceph/ceph.client.admin.keyring $i:/etc/ceph/ceph.client.admin.keyring; done
+
+# di all computes :
+chown ceph:ceph /etc/ceph/
+```
+
+- ini untuk bikin OSD pakai bluestore [disini ya](https://docs.ceph.com/en/latest/install/manual-deployment/#bluestore). 
 - biar ceph-mon dan ceph-mgr nya auto start meski node nya di-reboot bisa bisa jalanin command :
 ```bash
 systemctl enable ceph-mon.target
 systemctl enable ceph-mgr@{node-name}
+```
+- bikin pools 
+```bash
+# create pools for openstack service
+for i in {volumes,images,backups,vms}; do ceph osd pool create $i; done
+
+# Set pool tersebut untuk rbd
+for i in {volumes,images,backups,vms}; do rbd pool init $i; done
+
+# Membuat keyring yang nantinya digunakan untuk autentikasi service openstack ke pool ceph
+ceph auth get-or-create client.glance mon 'allow r' osd 'allow class-read object_prefix rbd_children, allow rwx pool=images' -o /etc/ceph/ceph.client.glance.keyring  
+ceph auth get-or-create client.cinder mon 'allow r' osd 'allow class-read object_prefix rbd_children, allow rwx pool=volumes, allow rwx pool=images' -o /etc/ceph/ceph.client.cinder.keyring  
+ceph auth get-or-create client.nova mon 'allow r' osd 'allow class-read object_prefix rbd_children, allow rwx pool=vms, allow rx pool=images' -o /etc/ceph/ceph.client.nova.keyring  
+ceph auth get-or-create client.cinder-backup mon 'allow r' osd 'allow class-read object_prefix rbd_children, allow rwx pool=backups' -o /etc/ceph/ceph.client.cinder-backup.keyring
 ```
