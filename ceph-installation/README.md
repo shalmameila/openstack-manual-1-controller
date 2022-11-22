@@ -60,7 +60,9 @@ root@jennie-controller:~# ceph -s
     usage:   0 B used, 0 B / 0 B avail
     pgs:
 ```
-buat yang `insecure global_id reclaim` solve pakai [referensi ini](https://access.redhat.com/articles/6136242). tapi kalau masih `HEALTH_WARN` we just need to create OSDs
+buat yang `insecure global_id reclaim` solve pakai [referensi ini](https://access.redhat.com/articles/6136242). tapi kalau masih `HEALTH_WARN` we just need to create OSDs.
+pake command 1ceph config set mon auth_allow_insecure_global_id_reclaim false`
+
 - SEBELUM BIKIN OSD
 ```bash
 # di controller :
