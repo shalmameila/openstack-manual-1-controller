@@ -41,4 +41,12 @@ Comment out the `pool 2.debian.pool.ntp.org offline iburst` line.
 service chrony restart
 ```
 
+# verify
+### run on controller and compute (twice)
+```bash
+chronyc sources
+```
+
+
+
 
