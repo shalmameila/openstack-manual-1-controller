@@ -16,9 +16,9 @@ uuidgen
 nano /etc/ceph/ceph.conf
 
 ...
+[global]
 fsid = 883d49c7-5d63-481d-b5d5-991e9b576b25
-mon initials member = controller
-
+mon initials member = jennie-controller
 mon host = 10.9.1.11
 cluster network = 10.9.2.0/24
 public network = 10.9.2.0/24
