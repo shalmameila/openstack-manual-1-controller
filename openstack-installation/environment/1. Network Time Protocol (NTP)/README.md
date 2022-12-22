@@ -31,9 +31,14 @@ apt install chrony
 nano /etc/chrony/chrony.conf 
 
 ...
-server 10.9.1.11 iburst
+server jennie-controller iburst
 ...
 ```
-Comment out the `ool 2.debian.pool.ntp.org offline iburst line.
+Comment out the `pool 2.debian.pool.ntp.org offline iburst` line.
+
+### restart NTP server
+```bash
+service chrony restart
+```
 
 
