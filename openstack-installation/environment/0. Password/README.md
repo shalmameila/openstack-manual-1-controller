@@ -8,7 +8,7 @@
 | DEMO_PASS                              | Password of   user demo                            |              |
 | GLANCE_DBPASS                          | Database password   for Image service              |              |
 | GLANCE_PASS                            | Password of Image   service user glance            |              |
-| KEYSTONE_DBPASS                        | Database password   of Identity service            |              |
+| KEYSTONE_DBPASS                        | Database password   of Identity service            |keyst0ne-db   |
 | METADATA_SECRET                        | Secret for the   metadata proxy                    |              |
 | NEUTRON_DBPASS                         | Database password   for the Networking service     |              |
 | NEUTRON_PASS                           | Password of   Networking service user neutron      |              |
