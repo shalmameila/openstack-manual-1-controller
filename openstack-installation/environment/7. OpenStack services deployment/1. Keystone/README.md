@@ -89,6 +89,11 @@ export OS_IDENTITY_API_VERSION=3
 ...
 ```
 
+### install openstackclient
+```bash
+apt  install python3-openstackclient
+```
+
 ### create a domain, projects, users, and roles
 ```bash
 openstack domain create --description "An Example Domain" example
