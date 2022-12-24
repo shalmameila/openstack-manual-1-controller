@@ -1,7 +1,7 @@
 # glance (image service)
 all command run in controller
 
-### ### access database with **root** user
+### access database with **root** user
 ```bash
 mysql -u root -p
 
@@ -90,4 +90,20 @@ su -s /bin/sh -c "glance-manage db_sync" glance
 ### restart glance
 ```bash
 service glance-api restart
+```
+
+## verify
+### downloadn source image
+```bash
+wget http://download.cirros-cloud.net/0.4.0/cirros-0.4.0-x86_64-disk.img
+```
+
+### upload the image to the Image service using the QCOW2 disk format, bare container format, and public visibility so all projects can access it
+```bash
+glance image-create --name "cirros" --file cirros-0.4.0-x86_64-disk.img --disk-format qcow2 --container-format bare --visibility=public
+```
+
+### confirm image uploaded
+```bash
+glance image-list
 ```
