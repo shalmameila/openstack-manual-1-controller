@@ -59,9 +59,35 @@ nano /etc/glance/glance-api.conf
 
 ...
 [database]
-connection = mysql+pymysql://glance:GLANCE_DBPASS@controller/glance
+connection = mysql+pymysql://glance:gl4nce-db@controller/glance
 
+[keystone_authtoken]
+www_authenticate_uri = http://controller:5000
+auth_url = http://controller:5000
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = glance
+password = gl4nce
 
+[paste_deploy]
+flavor = keystone
 
+[glance_store]
+stores = file,http
+default_store = file
+filesystem_store_datadir = /var/lib/glance/images/
+...
+```
 
+### populate the glance database
+```bash
+su -s /bin/sh -c "glance-manage db_sync" glance
+```
 
+### restart glance
+```bash
+service glance-api restart
+```
