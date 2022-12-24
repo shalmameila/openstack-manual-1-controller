@@ -17,6 +17,7 @@ CREATE DATABASE keystone;
 ```bash
 GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' IDENTIFIED BY 'keyst0ne-db';
 GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'keyst0ne-db';
+exit
 ```
 > `keyst0ne-db` is my KEYSTONE_DBPASS
 
