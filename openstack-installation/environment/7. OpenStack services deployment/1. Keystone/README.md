@@ -32,7 +32,7 @@ nano /etc/keystone/keystone.conf
 
 ...
 [database]
-connection = mysql+pymysql://keystone:KEYSTONE_DBPASS@controller/keystone
+connection = mysql+pymysql://keystone:keyst0ne-db@controller/keystone
 
 [token]
 provider = fernet
