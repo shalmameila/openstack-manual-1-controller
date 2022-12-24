@@ -48,7 +48,20 @@ openstack endpoint create --region RegionOne image internal http://controller:92
 openstack endpoint create --region RegionOne image admin http://controller:9292
 ```
 
-### 
+### install **glance** package
+```bash
+apt install glance
+```
+
+### configure
+```bash
+nano /etc/glance/glance-api.conf
+
+...
+[database]
+connection = mysql+pymysql://glance:GLANCE_DBPASS@controller/glance
+
+
 
 
 
