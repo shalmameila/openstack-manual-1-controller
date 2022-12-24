@@ -6,8 +6,8 @@
 | CINDER_PASS                            | Password of Block   Storage service user cinder    |              |
 | DASH_DBPASS                            | Database password   for the Dashboard              |              |
 | DEMO_PASS                              | Password of   user demo                            |              |
-| GLANCE_DBPASS                          | Database password   for Image service              |              |
-| GLANCE_PASS                            | Password of Image   service user glance            |              |
+| GLANCE_DBPASS                          | Database password   for Image service              | gl4nce-db    |
+| GLANCE_PASS                            | Password of Image   service user glance            | gl4nce       |
 | KEYSTONE_DBPASS                        | Database password   of Identity service            | keyst0ne-db  |
 | METADATA_SECRET                        | Secret for the   metadata proxy                    |              |
 | NEUTRON_DBPASS                         | Database password   for the Networking service     |              |
