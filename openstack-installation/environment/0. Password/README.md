@@ -1,6 +1,6 @@
 | Password   name                        | Description                                        | Password Gue |
 |----------------------------------------|----------------------------------------------------|--------------|
-| Database password   (no variable used) | Root password for the database                     |              |
+| Database password   (no variable used) | Root password for the database                     | db-p4ss      |
 | ADMIN_PASS                             | Password of   user admin                           | 4dm1n-pw     |
 | CINDER_DBPASS                          | Database password   for the Block Storage service  |              |
 | CINDER_PASS                            | Password of Block   Storage service user cinder    |              |
