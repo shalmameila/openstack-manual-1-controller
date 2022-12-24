@@ -5,7 +5,7 @@ all command run in **controller**
 ```bash
 mysql -u root -p
 
-# and then input password
+# and then input database password = db-p4ss
 ```
 
 ### create **keystone** database
