@@ -59,7 +59,7 @@ nano /etc/placement/placement.conf
 
 ...
 [placement_database]
-connection = mysql+pymysql://placement:pl4ceme3nt-db@controller/placement
+connection = mysql+pymysql://placement:pl4cem3nt-db@controller/placement
 
 [api]
 auth_strategy = keystone
