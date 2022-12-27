@@ -22,13 +22,13 @@ exit
 
 ### source the admin credentials to gain access to admin-only CLI commands
 ```bash
-openstack user create --domain default --password-prompt placement
-# input password pl4cem3nt
+. admin-openrc
 ```
 
 ### create **placement** user
 ```bash
 openstack user create --domain default --password-prompt placement
+# input password pl4cem3nt
 ```
 
 ### add the **placement** user to the **service** project with the **admin** role
