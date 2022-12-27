@@ -55,6 +55,9 @@ apt install placement-api
 
 ### configure
 ```bash
+nano /etc/placement/placement.conf
+
+...
 [placement_database]
 connection = mysql+pymysql://placement:pl4ceme3nt-db@controller/placement
 
@@ -70,6 +73,8 @@ user_domain_name = Default
 project_name = service
 username = placement
 password = pl4cem3nt
+...
+```
 
 ### populate the placement database
 ```bash
