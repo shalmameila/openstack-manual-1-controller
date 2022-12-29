@@ -229,7 +229,7 @@ physical_interface_mappings = provider1:ens5,provider2:ens6
 
 [vxlan]
 enable_vxlan = true
-local_ip = OVERLAY_INTERFACE_IP_ADDRESS
+local_ip = 10.9.1.11
 l2_population = true
 
 [securitygroup]
