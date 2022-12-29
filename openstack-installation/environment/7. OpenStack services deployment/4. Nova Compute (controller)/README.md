@@ -97,7 +97,7 @@ user_domain_name = default
 region_name = RegionOne
 project_name = service
 username = neutron
-password = NEUTRON_PASS
+password = n3utr0n
 service_metadata_proxy = tru
 metadata_proxy_shared_secret = m3tadt4ta-rahasia
 
