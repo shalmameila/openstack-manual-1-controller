@@ -119,7 +119,7 @@ nano /etc/neutron/plugins/ml2/linuxbridge_agent.ini
 
 ...
 [linux_bridge]
-physical_interface_mappings = provider:PROVIDER_INTERFACE_NAME
+physical_interface_mappings = provider1:ens5,provider2:ens6
 
 [vxlan]
 enable_vxlan = false
