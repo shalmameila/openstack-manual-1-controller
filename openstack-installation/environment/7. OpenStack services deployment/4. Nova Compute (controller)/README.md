@@ -66,7 +66,7 @@ nano /etc/nova/nova.conf
 
 ...
 [DEFAULT]
-transport_url = rabbit://openstack:RABBIT_PASS@controller:5672/
+transport_url = rabbit://openstack:r4bb1t@controller:5672/
 my_ip = 10.9.1.11
 
 [api_database]
