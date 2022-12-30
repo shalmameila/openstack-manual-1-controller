@@ -95,3 +95,13 @@ ceph auth get-or-create client.cinder mon 'allow r' osd 'allow class-read object
 ceph auth get-or-create client.nova mon 'allow r' osd 'allow class-read object_prefix rbd_children, allow rwx pool=vms, allow rx pool=images' -o /etc/ceph/ceph.client.nova.keyring  
 ceph auth get-or-create client.cinder-backup mon 'allow r' osd 'allow class-read object_prefix rbd_children, allow rwx pool=backups' -o /etc/ceph/ceph.client.cinder-backup.keyring
 ```
+
+# change the owner of the keyring
+```bash
+chown cinder:cinder /etc/ceph/ceph.client.cinder.keyring
+chown cinder:cinder /etc/ceph/ceph.client.cinder-backup.keyring
+chown glance:glance /etc/ceph/ceph.client.glance.keyring
+chown glance:glance /etc/ceph/ceph.client.glance.keyring
+
+```
+
