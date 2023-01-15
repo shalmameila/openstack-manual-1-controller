@@ -98,7 +98,7 @@ region_name = RegionOne
 project_name = service
 username = neutron
 password = n3utr0n
-service_metadata_proxy = tru
+service_metadata_proxy = true
 metadata_proxy_shared_secret = m3tadt4ta-rahasia
 
 [vnc]
